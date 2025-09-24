@@ -1,0 +1,104 @@
+  Voltage_registers_firmware_SD1_HVI:
+  - description: 'Firmware with voltage registers to read offset voltage of AWG channels in Python or HVI.'
+  - model_number: M3202A
+    firmware_version: 04.03.00
+    firmware_uuid: f85d9238-84be-e288-b426-e1f82b4c4fad
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3202A Voltage register\SD1 030408\Voltage_register_M3202A_9.k7z
+    nb_registers: -1
+
+  - model_number: M3201A
+    firmware_version: 04.04.00
+    firmware_uuid: 88fefa6a-99e6-c610-121c-1cb9420c60b7
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3201A Voltage register\SD1 030408\Voltage_register_M3201A_9.k7z
+    nb_registers: -1
+
+  M3202A_virtual_gates_firmware:
+  - description: 'Firmware to use virtual gates for a 4x4 matrix using the offset voltage and waveform of the AWG channels.'
+  - model_number: M3202A
+    firmware_version: 04.03.00
+    firmware_uuid: 7b2a09e5-6c68-0cf1-86e8-db7f93c82422
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3202A VG CC4 v2\SD1 030408\virtual_gates_M3202A_CC4_signalOut_2.k7z
+    nb_registers: -1
+
+  Digitizer_default_firmware:
+  - description: 'Default firmware of the digitizer.'
+  - model_number: M3100A
+    firmware_version: 02.03.00
+    firmware_uuid: 5952d7c7-eb28-4bcd-ecc1-7de4bdc52e02
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3100A default\SD1 030408\default_M3100A.k7z
+    nb_registers: 0
+
+  QD_emulator_firmware_Cm_variable:
+  - description: 'Firmware to emulate a double quantum dot with variable Cm. 1 us is needed to calculate the electronic occupation for DC sweeps or 50 ns for AC sweeps. Ch1 reads voltage of the x-axis and Ch2 reads voltage of the y-axis.'
+  - model_number: M3100A
+    firmware_version: 02.03.00
+    firmware_uuid: 48e6dbd2-7119-eb00-23ac-1ca41e5c9ac6
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3100A QD emulator\SD1 030408\Ch1Ch2.k7z
+    nb_registers: 0
+
+  VG_CC8_card1_v3_firmware:
+  - description: 'Firmware with voltage registers to use virtual gates for a 8x8 matrix (2 AWGs) using the offset voltage and waveform of the AWG channels. This firmware is for the first AWG. Synchronization with the second AWG is done with HVI and/or PC.'
+  - model_number: M3201A
+    firmware_version: 04.04.00
+    firmware_uuid: 62eb63c8-710c-2833-ab3c-32f8437a9cf7
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3201A VG CC8 v3\SD1 030408\virtual_gates_M3201A_CC8_3.k7z
+    nb_registers: 18
+
+  - model_number: M3202A
+    firmware_version: 04.03.00
+    firmware_uuid: a5039e51-8120-9601-2cd5-c108e2164e9a
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3202A VG CC8 v3\SD1 030408\virtual_gates_M3202A_CC8_3.k7z
+    nb_registers: 19
+
+  VG_CC8_card2_v3_firmware:
+  - description: 'Firmware with voltage registers to use virtual gates for a 8x8 matrix (2 AWGs) using the offset voltage and waveform of the AWG channels. This firmware is for the second AWG. Synchronization with the first AWG is done with HVI and/or PC.'
+  - model_number: M3201A
+    firmware_version: 04.04.00
+    firmware_uuid: 5f1be053-6c21-c885-f910-2b04c64555cf
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3201A VG CC8 v3\SD1 030408\virtual_gates_M3201A_CC8_card2_3.k7z
+    nb_registers: 18
+
+  - model_number: M3202A
+    firmware_version: 04.03.00
+    firmware_uuid: 350bf8ec-04f0-e5b5-eb7f-2d416eb6a1fa
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3202A VG CC8 v3\SD1 030408\virtual_gates_M3202A_CC8_card2_3.k7z
+    nb_registers: 19
+
+  VG_CC12_card1_v3_firmware:
+  - description: 'Firmware with voltage registers to use virtual gates for a 12x12 matrix (3 M3202A AWGs) using the offset voltage and waveform of the AWG channels. This firmware is for the first AWG. Synchronization with the others AWG is done with HVI and/or PC.'
+  - model_number: M3202A
+    firmware_version: 04.03.00
+    firmware_uuid: 88abd716-bd83-eaeb-3d9c-3c94d3422882
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3202A VG CC12 v3\SD1 030408\virtual_gates_M3202A_CC12_card1_v3.k7z
+    nb_registers: 27
+
+  VG_CC12_card2_v3_firmware:
+  - description: 'Firmware with voltage registers to use virtual gates for a 12x12 matrix (3 M3202A AWGs) using the offset voltage and waveform of the AWG channels. This firmware is for the second AWG. Synchronization with the others AWG is done with HVI and/or PC.'
+  - model_number: M3202A
+    firmware_version: 04.03.00
+    firmware_uuid: 415e6b06-a257-5905-e7d9-d92e515596e9
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3202A VG CC12 v3\SD1 030408\virtual_gates_M3202A_CC12_card2_v3.k7z
+    nb_registers: 27
+
+  VG_CC12_card3_v3_firmware:
+  - description: 'Firmware with voltage registers to use virtual gates for a 12x12 matrix (3 M3202A AWGs) using the offset voltage and waveform of the AWG channels. This firmware is for the third AWG. Synchronization with the others AWG is done with HVI and/or PC.'
+  - model_number: M3202A
+    firmware_version: 04.03.00
+    firmware_uuid: 9720ad6b-eba7-a5ae-d3fe-5a2d9dd6627f
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3202A VG CC12 v3\SD1 030408\virtual_gates_M3202A_CC12_card3_v3.k7z
+    nb_registers: 27
+
+  AWG_default_firmware:
+  - description: 'Default AWG firmware'
+  - model_number: M3201A
+    firmware_version: 04.04.00
+    firmware_uuid: 5fa23215-fa77-6b35-c0e6-cee1f2a7266d
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3201A default\SD1 030408\default_M3201A.k7z
+    nb_registers: 0
+
+  - model_number: M3202A
+    firmware_version: 04.03.00
+    firmware_uuid: d9610065-b284-2a7f-9cdd-ffeaf0d74f2d
+    firmware_path: Sweeper\PathWave FPGA firmwares\M3202A default\SD1 030408\default_M3202A.k7z
+    nb_registers: 0
+

@@ -1,0 +1,77 @@
+main_awg_descriptor:
+  model_number: "M3202A"
+  chassis_number: 1
+  slot_number: 10
+  options: 'channelNumbering=keysight'
+  card_num_VG: 1
+
+secondary_awg_descriptor:
+  model_number: "M3202A"
+  chassis_number: 1
+  slot_number: 11
+  options: 'channelNumbering=keysight'
+  card_num_VG: 0
+
+third_awg_descriptor:
+  model_number: "M3202A"
+  chassis_number: 1
+  slot_number: 8
+  options: 'channelNumbering=keysight'
+  card_num_VG: 0
+
+fourth_awg_descriptor:
+  model_number: "M3202A"
+  chassis_number: 1
+  slot_number: 11
+  options: 'channelNumbering=keysight'
+  card_num_VG: 0
+
+digitizer_descriptor:
+  model_number: "M3100A"
+  chassis_number: 1
+  slot_number: 9
+  options: 'channelNumbering=keysight'
+
+ApplicationConfig: 
+  vi_1d: 0
+  vf_1d: 1
+  num_steps_1d: 21
+  verified_num_steps_1d: 21 # updated by the verify_sweep_parameters_1d function if needed
+  vi_2d: 0
+  vf_2d: 1
+  num_steps_2d: 21
+  verified_num_steps_2d: 21 # updated by the verify_sweep_parameters_2d function if needed
+  slew_rate_1d: 10
+  slew_rate_2d: 10
+  AWG_channel_1d: 1
+  AWG_channel_2d: 2
+  dV: 45.7778e-6
+  stabilization_time: 0 # [ns]
+  integration_time: 1500 # [ns]
+  fullscale: 2
+  prescaler: 0
+  loadBitstream: True
+  load_digitizer_channel_config: False
+  use_QD_emulator: False
+  QD_emulator_Cm: 0.4
+  use_virtual_gates: False
+  hardware_simulated: False
+  log_dir: 'Logs'
+  database_folder: 'Data_HVI'
+  save_filename: 'test_sweeper2D'
+  max_time: 10
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

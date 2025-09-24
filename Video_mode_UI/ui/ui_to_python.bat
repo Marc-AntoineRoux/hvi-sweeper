@@ -1,0 +1,1 @@
+pyuic5 -x video_mode_ui.ui -o video_mode_interface.py

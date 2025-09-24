@@ -1,0 +1,115 @@
++30ns<Min> => "Initialize registers": SyncMultiSequenceBlock {
+    Engine "AWG Engine 10" {
+        +100ns => "Read FPGA Register Bank Voltage_Chx": reg"AWG Engine 10.Voltage 1D(Ch1)" = fpgaReg"Voltage_registers_V_Ch1"
+    }
+    Engine "Digitizer Engine 9" {
+        +10ns => "HVI Done = 0": reg"Digitizer Engine 9.HVI Done" = 0
+        +30ns => "Write reg_HLS_start = 1": fpgaMemMap"MainEngine_Memory_1"[0] = 1
+        +10ns => "Set Cm value": fpgaMemMap"MainEngine_Memory_1"[8] = reg"Digitizer Engine 9.Cm value"
+    }
+}
++570ns<Min> => "While Voltage Chx != Vi 1D": SyncWhile(reg"AWG Engine 10.Voltage 1D(Ch1)" != reg"AWG Engine 10.Vi 1D") {
+    +260ns<Min> => "Go to Vi": SyncMultiSequenceBlock {
+        Engine "AWG Engine 10" {
+            +430ns<?> => "Target voltage < V Chx": If(condition = (reg"AWG Engine 10.Vi 1D" < reg"AWG Engine 10.Voltage 1D(Ch1)"), MatchingBranches = TRUE) {
+                +60ns => "Sweep dir = -dV": reg"AWG Engine 10.Sweep Direction" = -1
+            }
+            Else {
+                +60ns => "Sweep dir = dV": reg"AWG Engine 10.Sweep Direction" = 1
+            }
+            +60ns => "Negative counter = 0": reg"AWG Engine 10.Neg Counter" = 0
+            +100ns<?> => "Target voltage > max positive": If(condition = (reg"AWG Engine 10.Vi 1D" > 32767), MatchingBranches = TRUE) {
+                +90ns => "Negative counter +1": reg"AWG Engine 10.Neg Counter" = reg"AWG Engine 10.Neg Counter" + 1
+            }
+            +100ns<?> => "V Chx > max positive": If(condition = (reg"AWG Engine 10.Voltage 1D(Ch1)" > 32767), MatchingBranches = TRUE) {
+                +90ns => "Negative counter +1(2)": reg"AWG Engine 10.Neg Counter" = reg"AWG Engine 10.Neg Counter" + 1
+            }
+            +100ns<?> => "Neg counter = 1": If(condition = (reg"AWG Engine 10.Neg Counter" == 1), MatchingBranches = TRUE) {
+                +90ns => "V Chx -= sweep direction": reg"AWG Engine 10.Voltage 1D(Ch1)" = reg"AWG Engine 10.Voltage 1D(Ch1)" - reg"AWG Engine 10.Sweep Direction"
+            }
+            Else {
+                +90ns => "V Chx += sweep direction": reg"AWG Engine 10.Voltage 1D(Ch1)" = reg"AWG Engine 10.Voltage 1D(Ch1)" + reg"AWG Engine 10.Sweep Direction"
+            }
+            +100ns<?> => "V Chx = max negative + 1": If(condition = (reg"AWG Engine 10.Voltage 1D(Ch1)" == 65537), MatchingBranches = TRUE) {
+                +90ns => "V Chx = 0": reg"AWG Engine 10.Voltage 1D(Ch1)" = 0
+            }
+            +200ns => "set AWG offset": M3202A.SetOffset(Channel = 1, ApplyDelayed = FALSE, Value = reg"AWG Engine 10.Voltage 1D(Ch1)")
+            +180920ns => "Wait": Delay()
+        }
+        Engine "Digitizer Engine 9" {}
+    }
+}
++260ns<Min> => "First measurement": SyncMultiSequenceBlock {
+    Engine "AWG Engine 10" {}
+    Engine "Digitizer Engine 9" {
+        +50ns<?> => "Stabilization Time": WaitTime(reg"Digitizer Engine 9.Stabilization Time")
+        +20ns => "DaqTrigger": ActionExecute([action"DAQ1Trigger", action"DAQ2Trigger", action"DAQ3Trigger", action"DAQ4Trigger"])
+        +20ns<?> => "Integration and Pause Time": WaitTime(reg"Digitizer Engine 9.Integration and Pause Time")
+        +60ns => "Loop Counter = 0": reg"Digitizer Engine 9.Loop Counter 1D" = 0
+        +10ns => "Dig debug += 1": reg"Digitizer Engine 9.DIG Debug" = reg"Digitizer Engine 9.DIG Debug" + 1
+        +10ns => "Num cycles since config += 1": reg"Digitizer Engine 9.Num Cycles Since Config" = reg"Digitizer Engine 9.Num Cycles Since Config" + 1
+        +100ns<?> => "If segment measured, wait until PC reset dig config": While(reg"Digitizer Engine 9.Num Cycles Since Config" > = reg"Digitizer Engine 9.Num Cycles in Seg") {}
+        +100ns => "Delay": Delay()
+    }
+}
++320ns<Min> => "While AWG loop counter 1D < ramp counter 1D": SyncWhile(reg"AWG Engine 10.AWG Loop Counter 1D" < reg"AWG Engine 10.Ramp Counter 1D") {
+    +260ns<Min> => "Sweep": SyncMultiSequenceBlock {
+        Engine "AWG Engine 10" {
+            +430ns<?> => "Target voltage < V Chx(2)": If(condition = (reg"AWG Engine 10.Vf 1D" < reg"AWG Engine 10.Voltage 1D(Ch1)"), MatchingBranches = TRUE) {
+                +60ns => "Sweep dir = -dV(2)": reg"AWG Engine 10.Sweep Direction" = reg"AWG Engine 10.Neg Voltage Increment"
+            }
+            Else {
+                +60ns => "Sweep dir = dV(2)": reg"AWG Engine 10.Sweep Direction" = reg"AWG Engine 10.Voltage Increment"
+            }
+            +60ns => "Negative counter = 0(2)": reg"AWG Engine 10.Neg Counter" = 0
+            +100ns<?> => "Target voltage > max positive(2)": If(condition = (reg"AWG Engine 10.Vf 1D" > 32767), MatchingBranches = TRUE) {
+                +90ns => "Negative counter +1(3)": reg"AWG Engine 10.Neg Counter" = reg"AWG Engine 10.Neg Counter" + 1
+            }
+            +100ns<?> => "V Chx > max positive(2)": If(condition = (reg"AWG Engine 10.Voltage 1D(Ch1)" > 32767), MatchingBranches = TRUE) {
+                +90ns => "Negative counter +1(4)": reg"AWG Engine 10.Neg Counter" = reg"AWG Engine 10.Neg Counter" + 1
+            }
+            +100ns<?> => "Neg counter = 1(2)": If(condition = (reg"AWG Engine 10.Neg Counter" == 1), MatchingBranches = TRUE) {
+                +90ns => "V Chx -= sweep direction(2)": reg"AWG Engine 10.Voltage 1D(Ch1)" = reg"AWG Engine 10.Voltage 1D(Ch1)" - reg"AWG Engine 10.Sweep Direction"
+            }
+            Else {
+                +90ns => "V Chx += sweep direction(2)": reg"AWG Engine 10.Voltage 1D(Ch1)" = reg"AWG Engine 10.Voltage 1D(Ch1)" + reg"AWG Engine 10.Sweep Direction"
+            }
+            +100ns<?> => "V Chx = max negative + 1(2)": If(condition = (reg"AWG Engine 10.Voltage 1D(Ch1)" == 65537), MatchingBranches = TRUE) {
+                +90ns => "V Chx = 0(2)": reg"AWG Engine 10.Voltage 1D(Ch1)" = 0
+            }
+            +200ns => "set AWG offset(2)": M3202A.SetOffset(Channel = 1, ApplyDelayed = FALSE, Value = reg"AWG Engine 10.Voltage 1D(Ch1)")
+            +180920ns => "Wait(2)": Delay()
+            +10ns => "AWG loop counter 1D += 1": reg"AWG Engine 10.AWG Loop Counter 1D" = reg"AWG Engine 10.AWG Loop Counter 1D" + 1
+        }
+        Engine "Digitizer Engine 9" {}
+    }
+    +100ns<Min> => "Measure": SyncMultiSequenceBlock {
+        Engine "AWG Engine 10" {}
+        Engine "Digitizer Engine 9" {
+            +90ns => "Loop Counter += 1": reg"Digitizer Engine 9.Loop Counter 1D" = reg"Digitizer Engine 9.Loop Counter 1D" + 1
+            +110ns<?> => "Loop Counter < Step Counter 1D": If(condition = (reg"Digitizer Engine 9.Loop Counter 1D" < reg"Digitizer Engine 9.Step Counter 1D"), MatchingBranches = FALSE) {}
+            Else {
+                +50ns<?> => "Stabilization Time(2)": WaitTime(reg"Digitizer Engine 9.Stabilization Time")
+                +20ns => "DaqTrigger(2)": ActionExecute([action"DAQ1Trigger", action"DAQ2Trigger", action"DAQ3Trigger", action"DAQ4Trigger"])
+                +20ns<?> => "Integration and Pause Time(2)": WaitTime(reg"Digitizer Engine 9.Integration and Pause Time")
+                +60ns => "Loop Counter = 0(2)": reg"Digitizer Engine 9.Loop Counter 1D" = 0
+                +90ns => "DIG Debug += 1": reg"Digitizer Engine 9.DIG Debug" = reg"Digitizer Engine 9.DIG Debug" + 1
+                +10ns => "Num cycles since config += 1(2)": reg"Digitizer Engine 9.Num Cycles Since Config" = reg"Digitizer Engine 9.Num Cycles Since Config" + 1
+            }
+            +100ns<?> => "If segment measured, wait until PC reset dig config(2)": While(reg"Digitizer Engine 9.Num Cycles Since Config" > = reg"Digitizer Engine 9.Num Cycles in Seg") {}
+            +100ns => "Delay": Delay()
+        }
+    }
+}
++260ns<Min> => "Reset AWG loop counter 1D": SyncMultiSequenceBlock {
+    Engine "AWG Engine 10" {
+        +10ns => "AWG loop counter 1D = 0": reg"AWG Engine 10.AWG Loop Counter 1D" = 0
+    }
+    Engine "Digitizer Engine 9" {}
+}
++30ns<Min> => "HVI Done": SyncMultiSequenceBlock {
+    Engine "AWG Engine 10" {}
+    Engine "Digitizer Engine 9" {
+        +10ns => "HVI Done = 1": reg"Digitizer Engine 9.HVI Done" = 1
+    }
+}
