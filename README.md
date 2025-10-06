@@ -3,7 +3,9 @@ HVI functions to quickly measure stability diagrams using M3xxxA AWG and digitiz
 
 # Requirements
 PathWave Test Sync Executive 2021
+
 PathWave FPGA 2022 Update 1.0 (more recent versions might work but have not been fully tested)
+
 M3201A AWG modules, M3202A AWG modules or M3100A digitizer modules (other M3xxxA modules might work with some modifications in the code)
 
 # Usage
