@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="quantum_dot_simulator_0_synth_1" LaunchDir="C:/Larissa/0-Quantum-Dot-Simulator/1-DC-Sweep/Vivado/2018.3/Quantum-dot-simulator.runs/quantum_dot_simulator_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

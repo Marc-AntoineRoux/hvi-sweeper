@@ -1,0 +1,52 @@
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'roum2013' on host 'desktop-ql9kc4s' (Windows NT_amd64 version 6.2) on Mon Feb 23 22:20:34 -0500 2026
+INFO: [HLS 200-10] In directory 'E:/Documents/GitLab/hvi-sweeper/Sweeper/PathWave_FPGA_firmwares/M3100A_QD_emulator/1-DC-Sweep/HLS/2018.3'
+INFO: [HLS 200-10] Opening project 'E:/Documents/GitLab/hvi-sweeper/Sweeper/PathWave_FPGA_firmwares/M3100A_QD_emulator/1-DC-Sweep/HLS/2018.3/quantum_dot_simulator'.
+WARNING: [HLS 200-40] No E:/Documents/GitLab/hvi-sweeper/Sweeper/PathWave_FPGA_firmwares/M3100A_QD_emulator/1-DC-Sweep/HLS/2018.3/quantum_dot_simulator/solution2/solution2.aps file found.
+INFO: [HLS 200-10] Opening solution 'E:/Documents/GitLab/hvi-sweeper/Sweeper/PathWave_FPGA_firmwares/M3100A_QD_emulator/1-DC-Sweep/HLS/2018.3/quantum_dot_simulator/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.5ns.
+INFO: [HLS 200-10] Setting target device to 'xc7k70tfbg484-1'
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../tb_quantum_dot_simulator.cpp in debug mode
+csim.mk:78: recipe for target 'obj/tb_quantum_dot_simulator.o' failed
+In file included from C:/Xilinx/Vivado/2018.3/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from C:/Xilinx/Vivado/2018.3/include/hls_fpo.h:186,
+                 from C:/Xilinx/Vivado/2018.3/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2018.3/include/hls_math.h:36,
+                 from ../../../../quantum_dot_simulator.h:6,
+                 from ../../../../tb_quantum_dot_simulator.cpp:1:
+C:/Xilinx/Vivado/2018.3/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from C:/Xilinx/Vivado/2018.3/include/hls_fpo.h:186:0,
+                 from C:/Xilinx/Vivado/2018.3/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2018.3/include/hls_math.h:36,
+                 from ../../../../quantum_dot_simulator.h:6,
+                 from ../../../../tb_quantum_dot_simulator.cpp:1:
+C:/Xilinx/Vivado/2018.3/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from ../../../../tb_quantum_dot_simulator.cpp:7:0:
+../../../../golden_occupation.dat:2:1: error: expected '}' before numeric constant
+ 0.0,0.0,0.0,0.0,0.0,0.000732421875,0.007080078125,0.0703125,0.44677734375,0.896240234375,0.9892578125,0.9990234375,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.000244140625,1.003173828125,1.033203125,1.268798828125,1.796630859375,1.976806640625,1.997802734375,1.999755859375,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.000244140625,2.00146484375,2.015380859375,2.142578125,2.640380859375,2.949951171875,2.9951171875,2.99951171875,3.0,3.0,3.0,3.0,3.0
+ ^~~
+../../../../golden_occupation.dat:2:1: error: expected ',' or ';' before numeric constant
+../../../../tb_quantum_dot_simulator.cpp:8:1: error: expected declaration before '}' token
+ };
+ ^
+make: *** [obj/tb_quantum_dot_simulator.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+4
+    while executing
+"source E:/Documents/GitLab/hvi-sweeper/Sweeper/PathWave_FPGA_firmwares/M3100A_QD_emulator/1-DC-Sweep/HLS/2018.3/quantum_dot_simulator/solution1/csim.t..."
+    invoked from within
+"hls::main E:/Documents/GitLab/hvi-sweeper/Sweeper/PathWave_FPGA_firmwares/M3100A_QD_emulator/1-DC-Sweep/HLS/2018.3/quantum_dot_simulator/solution1/csi..."
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$args"
+    (procedure "hls_proc" line 5)
+    invoked from within
+"hls_proc $argv"

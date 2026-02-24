@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_sitofp_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution1" date="2022-03-16T20:08:11.792-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fmul_0_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution1" date="2022-03-16T20:08:09.868-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fexp_3_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution1" date="2022-03-16T20:08:07.837-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fdiv_6_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution1" date="2022-03-16T20:08:05.957-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fcmp_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution1" date="2022-03-16T20:08:04.241-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fadd_2_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution1" date="2022-03-16T20:08:02.447-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_sitofp_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution2" date="2021-07-22T19:18:38.558-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fmul_0_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution2" date="2021-07-22T19:18:36.667-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fexp_3_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution2" date="2021-07-22T19:18:34.754-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fdiv_6_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution2" date="2021-07-22T19:18:33.045-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fcmp_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution2" date="2021-07-22T19:18:31.320-0400" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'quantum_dot_simulator_ap_fadd_2_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="quantum_dot_simulator" solutionName="solution2" date="2021-07-22T19:18:29.606-0400" type="Warning"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

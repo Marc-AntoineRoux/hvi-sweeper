@@ -1,0 +1,1 @@
+The .dat file is generated using C:\Larissa\0-Quantum-Dot-Simulator\1-DC-Sweep\Python\Python-QdotSimulator.py
